@@ -8,21 +8,21 @@ public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name="employee_id", referencedColumnName = "id")
+    private Employee employee;
     private String shiftType;
     private String shiftStart;
     private String shiftEnd;
     private Double hours;
 
-    @ManyToOne
-    @JoinColumn(name="employee_id", referencedColumnName = "id")
-    public List<Employee> employee;
 
 
-    public Shift() {
 
-    }
+    public Shift() {}
 
-    public Shift(String shiftType, String shiftStart, String shiftEnd, Double hours) {
+    public Shift(Employee employee,String shiftType, String shiftStart, String shiftEnd, Double hours) {
+        this.employee=employee;
         this.shiftType = shiftType;
         this.shiftStart = shiftStart;
         this.shiftEnd = shiftEnd;
@@ -35,6 +35,14 @@ public class Shift {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public String getShiftType() {
