@@ -1,6 +1,7 @@
 package com.openshift.employeemanagement.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Shift {
@@ -14,7 +15,7 @@ public class Shift {
 
     @ManyToOne
     @JoinColumn(name="employee_id", referencedColumnName = "id")
-    public Employee employee;
+    public List<Employee> employee;
 
 
     public Shift() {
