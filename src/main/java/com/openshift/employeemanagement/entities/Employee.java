@@ -18,10 +18,9 @@ public class Employee {
     private String supervisor;
     private Double salary;
     private Date dateHired;
-
-    @ManyToMany
-    @JoinColumn(name = "employee_id", referencedColumnName = "id")
-    private List<Shift> shift;
+    @OneToOne
+    @JoinColumn(name = "developer_id", referencedColumnName = "id")
+    private Shift shift;
 
     public Employee() {}
 
