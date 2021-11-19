@@ -18,9 +18,14 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     @GetMapping
-    public @ResponseBody
-    List<Employee> getEmployees() {
+    @ResponseBody
+    public List<Employee> getEmployees() {
         return repository.findAll();
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<Employee>> getEmployeeByName(@PathVariable String name) {
+        return new ResponseEntity<>(repository.findAllByName(name), HttpStatus.OK);
     }
 
     @GetMapping("/role/{role}")
@@ -44,7 +49,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public @ResponseBody Employee getEmployeeById(@PathVariable Long id) {
+    @ResponseBody
+    public Employee getEmployeeById(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
@@ -56,16 +62,17 @@ public class EmployeeController {
 
 
     @PutMapping("/{id}")
-    public @ResponseBody Employee updateEmployee(@PathVariable Long id, @RequestBody Employee updates) {
+    @ResponseBody
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee updates) {
         Employee Employee = repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         if (updates.getName() != null) Employee.setName(updates.getName());
-        if (updates.getRole()!= null) Employee.setRole(updates.getRole());
+        if (updates.getRole() != null) Employee.setRole(updates.getRole());
         if (updates.getDepartment() != null) Employee.setDepartment(updates.getDepartment());
-        if (updates.getLocation()!= null) Employee.setLocation(updates.getLocation());
-     //   if (updates.getSupervisor()!= null) Employee.setSupervisor(updates.getSupervisor());
+        if (updates.getLocation() != null) Employee.setLocation(updates.getLocation());
+        //   if (updates.getSupervisor()!= null) Employee.setSupervisor(updates.getSupervisor());
 //        if (updates.getSkills() != null) Employee.setSkills(updates.getSkills());
-        if (updates.getSalary()!= null) Employee.setSalary(updates.getSalary());
+        if (updates.getSalary() != null) Employee.setSalary(updates.getSalary());
 //        if (updates.getDateHired()!= null) Employee.setDateHired(updates.getDateHired());
 
         return repository.save(Employee);

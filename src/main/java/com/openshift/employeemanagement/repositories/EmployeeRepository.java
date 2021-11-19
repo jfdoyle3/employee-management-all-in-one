@@ -14,5 +14,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findAllBySupervisor(String supervisor, Sort sort);
     List<Employee> findAllBySalary(Double salary, Sort sort);
     List<Employee> findAllByDateHired(Date dateHired, Sort sort);
+    List<Employee> findAllByName(String name);
 
 }
