@@ -1,5 +1,7 @@
 package com.openshift.employeemanagement.controllers;
+import com.openshift.employeemanagement.entities.Employee;
 import com.openshift.employeemanagement.entities.Shift;
+import com.openshift.employeemanagement.repositories.EmployeeRepository;
 import com.openshift.employeemanagement.repositories.ShiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ public class ShiftController {
 
     @Autowired
     private ShiftRepository repository;
+    private EmployeeRepository empRepo;
 
     @GetMapping
     @ResponseBody
@@ -44,9 +47,14 @@ public class ShiftController {
         return repository.save(shift);
     }
 
-    // TODO: Assign Employee Shifts
-    public ResponseEntity<Shift> assignShift() {
-        return null;
+
+      // TODO: Assign Employee Shifts
+      // TODO: REFACTOR/FIX THIS TO WORK
+    @PostMapping("/{empId}")
+    public @ResponseBody Post newPost(@PathVariable Long empId, @RequestBody Post newPost) {
+        Employee poster = repository.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Developer Not Found"));
+        newPost.setEmpoyee(poster);
+        return repository.save(newPost);
     }
 
 
