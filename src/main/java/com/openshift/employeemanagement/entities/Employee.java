@@ -18,20 +18,30 @@ public class Employee {
     private String supervisor;
     private Double salary;
     private Date dateHired;
+
     @OneToOne
-    @JoinColumn(name = "developer_id", referencedColumnName = "id")
+    @JoinColumn(name = "shift_id", referencedColumnName = "id")
     private Shift shift;
 
     public Employee() {}
 
-    public Employee(String name, String role) {
+    public Employee(String name, String role,Shift shift) {
         this.name = name;
         this.role = role;
+        this.shift=shift;
     }
 
     public Employee(String name, String role, String department, String location, Double salary) {
         this.name = name;
         this.role = role;
+    }
+
+    public Shift getShift() {
+        return shift;
+    }
+
+    public void setShift(Shift shift) {
+        this.shift = shift;
     }
 
     public Long getId() {

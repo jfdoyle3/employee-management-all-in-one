@@ -13,21 +13,22 @@ public class Shift {
     private String shiftEnd;
     private Double hours;
 
-    @ManyToOne
-    @JoinColumn(name="employee_id", referencedColumnName = "id")
-    public List<Employee> employee;
+//    @ManyToOne
+//    @JoinColumn(name="employee_id", referencedColumnName = "id")
+//    public List<Employee> employee;
 
 
-    public Shift() {
-
-    }
+    public Shift() {}
 
     public Shift(String shiftType, String shiftStart, String shiftEnd, Double hours) {
+
         this.shiftType = shiftType;
         this.shiftStart = shiftStart;
         this.shiftEnd = shiftEnd;
         this.hours = hours;
     }
+
+
 
     public Long getId() {
         return id;
