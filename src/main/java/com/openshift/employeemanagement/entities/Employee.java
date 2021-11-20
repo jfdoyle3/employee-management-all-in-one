@@ -1,5 +1,9 @@
 package com.openshift.employeemanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -7,6 +11,13 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+// Displays Developer record for only the first json record.
+// Comment out to show Developer on every json record.
+// Unwrap item one time.
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Employee {
 
     @Id
@@ -22,7 +33,12 @@ public class Employee {
     private Date dateHired;
 
     @ManyToMany
-    @JoinColumn(name="shift_id", referencedColumnName = "id")
+    @JoinTable(
+            name="employee_shift",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "shift_id")
+    )
+    @JsonIgnoreProperties({"employees"})
     private Set<Shift> shifts = new HashSet<>();
 
     public Employee() {}
