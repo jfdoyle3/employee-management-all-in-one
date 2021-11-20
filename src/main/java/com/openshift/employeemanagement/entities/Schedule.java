@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Schedule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 //    List<Shift> shifts;
 //    List<Employee> employees;

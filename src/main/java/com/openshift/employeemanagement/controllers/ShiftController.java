@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Set;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/shifts")
 public class ShiftController {
@@ -59,10 +61,10 @@ public class ShiftController {
       // TODO: Assign Employee Shifts
       // TODO: REFACTOR/FIX THIS TO WORK
     @PostMapping("/{empId}")
-    public @ResponseBody Post newPost(@PathVariable Long empId, @RequestBody Post newPost) {
-        Employee poster = repository.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Developer Not Found"));
-        newPost.setEmpoyee(poster);
-        return repository.save(newPost);
+    public @ResponseBody Shift newShift(@PathVariable Long empId, @RequestBody Shift newShift) {
+        Employee employee = empRepo.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Developer Not Found"));
+        newShift.setEmployee((Set<Employee>) employee);
+        return repository.save(newShift);
     }
 
 

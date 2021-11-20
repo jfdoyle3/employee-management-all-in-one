@@ -2,13 +2,15 @@ package com.openshift.employeemanagement.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String role;
@@ -18,9 +20,10 @@ public class Employee {
     private String supervisor;
     private Double salary;
     private Date dateHired;
-    @OneToOne
-    @JoinColumn(name = "developer_id", referencedColumnName = "id")
-    private Shift shift;
+
+    @ManyToMany
+    @JoinColumn(name="shift_id", referencedColumnName = "id")
+    private Set<Shift> shifts = new HashSet<>();
 
     public Employee() {}
 
@@ -89,6 +92,15 @@ public class Employee {
 //    public void setSkills(String skills) {
 //        this.skills = skills;
 //    }
+
+
+    public Set<Shift> getShift() {
+        return shifts;
+    }
+
+    public void setShift(Set<Shift> shifts) {
+        this.shifts = shifts;
+    }
 
     public Double getSalary() {
         return salary;

@@ -1,21 +1,23 @@
 package com.openshift.employeemanagement.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Shift {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String shiftType;
     private String shiftStart;
     private String shiftEnd;
     private Double hours;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name="employee_id", referencedColumnName = "id")
-    public List<Employee> employee;
+    private Set<Employee> employee = new HashSet<>();
 
 
     public Shift() {
@@ -68,6 +70,15 @@ public class Shift {
 //    public HashMap<Employee, Shift> assignShifts() {
 //
 //    }
+
+
+    public Set<Employee> getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Set<Employee> employee) {
+        this.employee= employee;
+    }
 
     public Double getHours() {
         return hours;
