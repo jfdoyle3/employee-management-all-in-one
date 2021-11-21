@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Evan\",\r\n    \"role\":\"Sr. Developer\",\r\n    \"department\":\"Java Dev Team\",\r\n    \"location\":\"Hawaii\",\r\n    \"supervisor\":\"Michael Palin\",\r\n    \"salary\":100000.00\r\n    }",
+							"raw": "{\r\n    \"name\":\"Scott\",\r\n    \"role\":\"Developer\",\r\n    \"department\":\"Java Dev Team\",\r\n    \"location\":\"Hawaii\",\r\n    \"supervisor\":\"Michael Palin\",\r\n    \"salary\":70000.00,\r\n    \"shift\":[{\r\n        \"id\":4\r\n    }]\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -82,7 +82,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/employees/name/jim",
+							"raw": "localhost:8080/api/employees/name/evan",
 							"host": [
 								"localhost"
 							],
@@ -91,7 +91,7 @@
 								"api",
 								"employees",
 								"name",
-								"jim"
+								"evan"
 							]
 						}
 					},
@@ -102,15 +102,20 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:8080/api/employees",
+							"raw": "localhost:8080/api/employees/3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"api",
-								"employees"
+								"employees",
+								"3"
 							]
 						}
 					},
@@ -121,15 +126,25 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"salary\":100000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/api/employees",
+							"raw": "localhost:8080/api/employees/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"api",
-								"employees"
+								"employees",
+								"2"
 							]
 						}
 					},
@@ -141,13 +156,32 @@
 			"name": "Shifts",
 			"item": [
 				{
+					"name": "All Shifts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/shifts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"shifts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Post a shift",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n \"shiftType\":\"Morning\",\r\n \"shiftStart\":\"7:00am\",\r\n \"shiftEnd\":\"3:00pm\",\r\n \"hours\": 8,\r\n \"employee\":{\r\n     \"id\":1\r\n }\r\n}",
+							"raw": "{\r\n\r\n \"shiftType\":\"fMorning\",\r\n \"shiftStart\":\"7:00am\",\r\n \"shiftEnd\":\"3:00pm\",\r\n \"hours\": 8\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,10 +203,39 @@
 					"response": []
 				},
 				{
-					"name": "All Shifts",
+					"name": "a Shift",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/shifts/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"shifts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Shift",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"salary\":100000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8080/api/shifts",
 							"host": [
