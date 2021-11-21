@@ -71,7 +71,7 @@ public class EmployeeController {
         if (updates.getRole() != null) Employee.setRole(updates.getRole());
         if (updates.getDepartment() != null) Employee.setDepartment(updates.getDepartment());
         if (updates.getLocation() != null) Employee.setLocation(updates.getLocation());
-        //   if (updates.getSupervisor()!= null) Employee.setSupervisor(updates.getSupervisor());
+        if (updates.getSupervisor()!= null) Employee.setSupervisor(updates.getSupervisor());
 //        if (updates.getSkills() != null) Employee.setSkills(updates.getSkills());
         if (updates.getSalary() != null) Employee.setSalary(updates.getSalary());
 //        if (updates.getDateHired()!= null) Employee.setDateHired(updates.getDateHired());
