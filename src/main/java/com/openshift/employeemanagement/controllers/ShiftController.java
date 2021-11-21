@@ -45,14 +45,10 @@ public class ShiftController {
     public Shift updateShift(@PathVariable Long id, @RequestBody Shift updates) {
         Shift shift = repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-//        if (updates.getName() != null) Shift.setName(updates.getName());
-//        if (updates.getRole()!= null) Shift.setRole(updates.getRole());
-//        if (updates.getDepartment() != null) Shift.setDepartment(updates.getDepartment());
-//        if (updates.getLocation()!= null) Shift.setLocation(updates.getLocation());
-//        if (updates.getSupervisor()!= null) Shift.setSupervisor(updates.getSupervisor());
-////        if (updates.getSkills() != null) Shift.setSkills(updates.getSkills());
-//        if (updates.getSalary()!= null) Shift.setSalary(updates.getSalary());
-//        if (updates.getDateHired()!= null) Shift.setDateHired(updates.getDateHired());
+        if (updates.getShiftType() != null) shift.setShiftType(updates.getShiftType());
+        if (updates.getShiftStart()!= null) shift.setShiftStart(updates.getShiftStart());
+        if (updates.getShiftEnd() != null) shift.setShiftEnd(updates.getShiftEnd());
+        if (updates.getHours()!= null) shift.setHours(updates.getHours());
 
         return repository.save(shift);
     }

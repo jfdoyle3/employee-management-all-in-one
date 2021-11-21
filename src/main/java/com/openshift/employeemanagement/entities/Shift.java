@@ -59,7 +59,7 @@ public class Shift {
         return shiftType;
     }
 
-    public void setShiftType(String shiftType) {
+    public  void setShiftType(String shiftType) {
         this.shiftType = shiftType;
     }
 
@@ -75,7 +75,7 @@ public class Shift {
         return shiftEnd;
     }
 
-    public void setShiftEnd(String shiftEnd) {
+    public  void setShiftEnd(String shiftEnd) {
         this.shiftEnd = shiftEnd;
     }
 
