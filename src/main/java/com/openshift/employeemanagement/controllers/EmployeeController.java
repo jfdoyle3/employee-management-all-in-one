@@ -74,6 +74,7 @@ public class EmployeeController {
         if (updates.getSupervisor()!= null) Employee.setSupervisor(updates.getSupervisor());
 //        if (updates.getSkills() != null) Employee.setSkills(updates.getSkills());
         if (updates.getSalary() != null) Employee.setSalary(updates.getSalary());
+        if (updates.getShift()!=null) Employee.setShift(updates.getShift());
 //        if (updates.getDateHired()!= null) Employee.setDateHired(updates.getDateHired());
 
         return repository.save(Employee);

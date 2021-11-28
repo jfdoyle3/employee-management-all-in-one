@@ -27,7 +27,7 @@ public class ShiftController {
 
     @Autowired
     private ShiftRepository repository;
-    private EmployeeRepository empRepo;
+    private EmployeeRepository employeeRepository;
 
     @GetMapping
     @ResponseBody
@@ -58,7 +58,7 @@ public class ShiftController {
       // TODO: REFACTOR/FIX THIS TO WORK
     @PostMapping("/{empId}")
     public @ResponseBody Shift newShift(@PathVariable Long empId, @RequestBody Shift newShift) {
-        Employee employee = empRepo.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Developer Not Found"));
+        Employee employee = employeeRepository.findById(empId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Developer Not Found"));
         newShift.setEmployee((Set<Employee>) employee);
         return repository.save(newShift);
     }
