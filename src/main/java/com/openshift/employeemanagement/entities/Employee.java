@@ -29,7 +29,6 @@ public class Employee {
     private String role;
     private String department;
     private String location;
-    //    private String skills;
     private String supervisor;
     private Double salary;
     private Date dateHired;
@@ -45,15 +44,18 @@ public class Employee {
 
     public Employee() {}
 
-    public Employee(String name, String role) {
+
+    public Employee(String name, String role, String department, String location, String supervisor, Double salary, Date dateHired, Set<Shift> shifts) {
         this.name = name;
         this.role = role;
+        this.department = department;
+        this.location = location;
+        this.supervisor = supervisor;
+        this.salary = salary;
+        this.dateHired = dateHired;
+        this.shifts = shifts;
     }
 
-    public Employee(String name, String role, String department, String location, Double salary) {
-        this.name = name;
-        this.role = role;
-    }
 
     public Long getId() {
         return id;
@@ -103,15 +105,6 @@ public class Employee {
         this.supervisor = supervisor;
     }
 
-//    public String getSkills() {
-//        return skills;
-//    }
-//
-//    public void setSkills(String skills) {
-//        this.skills = skills;
-//    }
-
-
     public Set<Shift> getShift() {
         return shifts;
     }
@@ -135,4 +128,6 @@ public class Employee {
     public void setDateHired (Date dateHired) {
         this.dateHired = dateHired;
     }
+
+
 }

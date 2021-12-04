@@ -9,6 +9,62 @@
 			"name": "Employees",
 			"item": [
 				{
+					"name": "Get Requests",
+					"item": [
+						{
+							"name": "Get All by Role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/employees/role/Developers",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employees",
+										"role",
+										"Developers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All by Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/employees/name/evan",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employees",
+										"name",
+										"evan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Get All Employees",
 					"request": {
 						"method": "GET",
@@ -50,48 +106,6 @@
 							"path": [
 								"api",
 								"employees"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All by Role",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/api/employees/role/Developers",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"employees",
-								"role",
-								"Developers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All by Name",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/api/employees/name/evan",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"employees",
-								"name",
-								"evan"
 							]
 						}
 					},
