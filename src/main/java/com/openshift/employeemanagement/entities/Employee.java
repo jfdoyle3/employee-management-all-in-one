@@ -33,19 +33,19 @@ public class Employee {
     private Double salary;
     private Date dateHired;
 
-    @ManyToMany
-    @JoinTable(
-            name="employee_shift",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "shift_id")
-    )
-    @JsonIgnoreProperties({"employees"})
-    private Set<Shift> shifts = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(
+//            name="employee_shift",
+//            joinColumns = @JoinColumn(name = "employee_id"),
+//            inverseJoinColumns = @JoinColumn(name = "shift_id")
+//    )
+//    @JsonIgnoreProperties({"employees"})
+//    private Set<Shift> shifts = new HashSet<>();
 
     public Employee() {}
 
 
-    public Employee(String name, String role, String department, String location, String supervisor, Double salary, Date dateHired, Set<Shift> shifts) {
+    public Employee(String name, String role, String department, String location, String supervisor, Double salary, Date dateHired) {
         this.name = name;
         this.role = role;
         this.department = department;
@@ -53,7 +53,7 @@ public class Employee {
         this.supervisor = supervisor;
         this.salary = salary;
         this.dateHired = dateHired;
-        this.shifts = shifts;
+
     }
 
 
@@ -105,13 +105,13 @@ public class Employee {
         this.supervisor = supervisor;
     }
 
-    public Set<Shift> getShift() {
-        return shifts;
-    }
-
-    public void setShift(Set<Shift> shifts) {
-        this.shifts = shifts;
-    }
+//    public Set<Shift> getShift() {
+//        return shifts;
+//    }
+//
+//    public void setShift(Set<Shift> shifts) {
+//        this.shifts = shifts;
+//    }
 
     public Double getSalary() {
         return salary;
