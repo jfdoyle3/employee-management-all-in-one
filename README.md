@@ -1,1 +1,3 @@
-# Hackathon-Employee_Mangement
+# Punch Time
+
+Open Shift project
