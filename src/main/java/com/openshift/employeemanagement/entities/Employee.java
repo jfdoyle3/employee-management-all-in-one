@@ -27,10 +27,10 @@ public class Employee {
     private Long id;
     private String name;
     private String role;
-    private String department;
-    private String location;
-    private String supervisor;
-    private Double salary;
+//    private String department;
+//    private String location;
+//    private String supervisor;
+//    private Double salary;
     private Date dateHired;
 
 //    @ManyToMany
@@ -48,10 +48,10 @@ public class Employee {
     public Employee(String name, String role, String department, String location, String supervisor, Double salary, Date dateHired) {
         this.name = name;
         this.role = role;
-        this.department = department;
-        this.location = location;
-        this.supervisor = supervisor;
-        this.salary = salary;
+//        this.department = department;
+//        this.location = location;
+//        this.supervisor = supervisor;
+//        this.salary = salary;
         this.dateHired = dateHired;
 
     }
@@ -81,29 +81,29 @@ public class Employee {
         this.role = role;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(String supervisor) {
-        this.supervisor = supervisor;
-    }
+//    public String getDepartment() {
+//        return department;
+//    }
+//
+//    public void setDepartment(String department) {
+//        this.department = department;
+//    }
+//
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+//
+//    public String getSupervisor() {
+//        return supervisor;
+//    }
+//
+//    public void setSupervisor(String supervisor) {
+//        this.supervisor = supervisor;
+//    }
 
 //    public Set<Shift> getShift() {
 //        return shifts;
@@ -113,13 +113,13 @@ public class Employee {
 //        this.shifts = shifts;
 //    }
 
-    public Double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Double salary) {
-        this.salary = salary;
-    }
+//    public Double getSalary() {
+//        return salary;
+//    }
+//
+//    public void setSalary(Double salary) {
+//        this.salary = salary;
+//    }
 
     public Date getDateHired() {
         return dateHired;
